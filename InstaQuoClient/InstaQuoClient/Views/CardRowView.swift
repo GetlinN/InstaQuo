@@ -10,6 +10,7 @@ import SwiftUI
 struct CardRowView: View {
     
     var card: Card
+    
     var body: some View {
         HStack {
             card.image
@@ -21,6 +22,8 @@ struct CardRowView: View {
 //                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //                .scaledToFit()
             Text(card.quote)
+                .lineLimit(3)
+            
             Spacer()
             
         }

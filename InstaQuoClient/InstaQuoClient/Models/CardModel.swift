@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Card: Hashable, Codable {
+struct Card: Hashable, Codable, Identifiable {
     var id: Int
     var quote: String
     var bookTitle: String
