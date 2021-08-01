@@ -12,6 +12,14 @@ struct CardListView: View {
     @State private var showImagePicker: Bool = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var imageSelected: UIImage?
+    @State private var showFavoritesOnly = false
+    
+    var filteredQuoteCards: [Card] {
+            quoteCards.filter { card in
+                (!showFavoritesOnly || card.isFavorite)
+            }
+        }
+
     
 //    let tabBarImageNames = ["house", "plus.app.fill", "person"]
     
@@ -19,9 +27,16 @@ struct CardListView: View {
             NavigationView {
                 VStack {
                     
-                    List(quoteCards) { card in
-                        NavigationLink(destination: CardDetailView(card: card)) {
-                            CardRowView(card: card)
+                    List {
+                        
+                        Toggle(isOn: $showFavoritesOnly, label: {
+                            Text("Favorites only")
+                        })
+                        
+                        ForEach(filteredQuoteCards) { card in
+                            NavigationLink(destination: CardDetailView(card: card)) {
+                                CardRowView(card: card)
+                            }
                         }
                     }
                     
@@ -96,6 +111,10 @@ struct CardListView: View {
             })
 //            Spacer()д
            
+    }
+    
+    func delete(at offsets: IndexSet) {
+           quoteCards.remove(atOffsets: offsets)
     }
 }
 

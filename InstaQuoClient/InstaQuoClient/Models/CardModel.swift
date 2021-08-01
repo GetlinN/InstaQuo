@@ -14,10 +14,11 @@ struct Card: Hashable, Codable, Identifiable {
     var bookTitle: String
     var bookAuthor: String
     var personalNote: String
+    var isFavorite: Bool
+
     
 //    var dateCreated: Date
 //    var dateEdited: Date
-//    var isFavourite: Bool
 //    var bookPage: Int
 //    var tags: [String]
 //    var userID: Int

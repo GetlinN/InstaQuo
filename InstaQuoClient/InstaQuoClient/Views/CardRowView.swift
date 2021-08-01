@@ -26,6 +26,11 @@ struct CardRowView: View {
             
             Spacer()
             
+            if card.isFavorite {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.pink)
+            }
+            
         }
     }
 }

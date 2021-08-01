@@ -15,6 +15,7 @@ struct CardDetailView: View {
 //    @State private var personalNote: String = "This is a place for personal notes."
 
     @State var card: Card
+    let fontSize = CGFloat(20)
 
     var body: some View {
         ScrollView {
@@ -22,10 +23,10 @@ struct CardDetailView: View {
                 Label("Quote", systemImage: "1.circle")
                     .foregroundColor(Color.gray)
                 TextEditor(text: $card.quote)
-                    .frame(width: 350, height: 250, alignment: .leading)
+                    .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: 1500, alignment: .leading)
                     .lineLimit(10)
-                    .font(.custom("HelveticaNeue", size: 13))
-                    .lineSpacing(5)
+                    .font(.custom("HelveticaNeue", size: fontSize))
+//                    .lineSpacing(5)
             }
             Divider()
             VStack(alignment: .leading) {
@@ -34,8 +35,8 @@ struct CardDetailView: View {
                 TextEditor(text: $card.bookTitle)
                     .frame(width: 350, height: 30, alignment: .leading)
                     .lineLimit(10)
-                    .font(.custom("HelveticaNeue", size: 13))
-                    .lineSpacing(5)
+                    .font(.custom("HelveticaNeue", size: fontSize))
+//                    .lineSpacing(5)
             }
             Divider()
             VStack(alignment: .leading) {
@@ -44,18 +45,18 @@ struct CardDetailView: View {
                 TextEditor(text: $card.bookAuthor)
                     .frame(width: 350, height: 30, alignment: .leading)
                     .lineLimit(10)
-                    .font(.custom("HelveticaNeue", size: 13))
-                    .lineSpacing(5)
+                    .font(.custom("HelveticaNeue", size: fontSize))
+//                    .lineSpacing(5)
             }
             Divider()
             VStack(alignment: .leading) {
                 Label("Personal Note", systemImage: "4.circle")
                     .foregroundColor(Color.gray)
                 TextEditor(text: $card.personalNote)
-                    .frame(width: 350, height: 250, alignment: .leading)
+                    .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: 1500)
                     .lineLimit(10)
-                    .font(.custom("HelveticaNeue", size: 13))
-                    .lineSpacing(5)
+                    .font(.custom("HelveticaNeue", size: fontSize))
+//                    .lineSpacing(5)
             }
             
 //            EditButton()

@@ -5,7 +5,8 @@
         "bookTitle": "Why We Sleep: Unlocking the Power of Sleep and Dreams",
         "bookAuthor": "Matthew Walker",
         "personalNote": "Matthew Walker is a British scientist and professor of neuroscience and psychology at the University of California, Berkeley. His research focuses on the impact of sleep on human health and disease. Previously, he was a professor of psychiatry at Harvard Medical School.",
-        "bookCoverImageFileName": "why_we_sleep"
+        "bookCoverImageFileName": "why_we_sleep",
+        "isFavorite": true
     },
     {
         "id": 2,
@@ -13,21 +14,24 @@
         "bookTitle": "Why We Sleep: Unlocking the Power of Sleep and Dreams",
         "bookAuthor": "Matthew Walker",
         "personalNote": "Matthew Walker is a British scientist and professor of neuroscience and psychology at the University of California, Berkeley. His research focuses on the impact of sleep on human health and disease. Previously, he was a professor of psychiatry at Harvard Medical School.",
-        "bookCoverImageFileName": "why_we_sleep"
+        "bookCoverImageFileName": "why_we_sleep",
+        "isFavorite": false
     },{
         "id": 3,
         "quote": "Every action you take is a vote for the type of person you wish to become. No single instance will transform your beliefs, but as the votes build up, so does the evidence of your new identity.",
         "bookTitle": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
         "bookAuthor": "James Clear",
         "personalNote": "He writes about habits, decision-making, and continuous improvement at jamesclear.com. His website receives millions of visitors each month and hundreds of thousands subscribe to his popular email newsletter.",
-        "bookCoverImageFileName": "atomic_habits"
+        "bookCoverImageFileName": "atomic_habits",
+        "isFavorite": true
     },{
         "id": 4,
         "quote": "You do not rise to the level of your goals. You fall to the level of your systems.",
         "bookTitle": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
         "bookAuthor": "James Clear",
         "personalNote": "He writes about habits, decision-making, and continuous improvement at jamesclear.com. His website receives millions of visitors each month and hundreds of thousands subscribe to his popular email newsletter.",
-        "bookCoverImageFileName": "atomic_habits"
+        "bookCoverImageFileName": "atomic_habits",
+        "isFavorite": true
     },
     {
         "id": 5,
@@ -35,7 +39,8 @@
         "bookTitle": "The Far Pavilions",
         "bookAuthor": "M. M. Kaye",
         "personalNote": "A magnificent romantic/historical/adventure novel set in India at the time of mutiny. The Far Pavilions is a story of 19th Century India, when the thin patina of English rule held down dangerously turbulent undercurrents. It is a story about and English man - Ashton Pelham-Martyn - brought up as a Hindu and his passionate, but dangerous love for an Indian princess.",
-        "bookCoverImageFileName": "far_away"
+        "bookCoverImageFileName": "far_away",
+        "isFavorite": false
     },
     {
         "id": 6,
@@ -43,7 +48,8 @@
         "bookTitle": "The Far Pavilions",
         "bookAuthor": "M. M. Kaye",
         "personalNote": "A magnificent romantic/historical/adventure novel set in India at the time of mutiny. The Far Pavilions is a story of 19th Century India, when the thin patina of English rule held down dangerously turbulent undercurrents. It is a story about and English man - Ashton Pelham-Martyn - brought up as a Hindu and his passionate, but dangerous love for an Indian princess.",
-        "bookCoverImageFileName": "far_away"
+        "bookCoverImageFileName": "far_away",
+        "isFavorite": false
     },
     {
         "id": 7,
@@ -51,7 +57,8 @@
         "bookTitle": "The Far Pavilions",
         "bookAuthor": "M. M. Kaye",
         "personalNote": "A magnificent romantic/historical/adventure novel set in India at the time of mutiny. The Far Pavilions is a story of 19th Century India, when the thin patina of English rule held down dangerously turbulent undercurrents. It is a story about and English man - Ashton Pelham-Martyn - brought up as a Hindu and his passionate, but dangerous love for an Indian princess.",
-        "bookCoverImageFileName": "far_away"
+        "bookCoverImageFileName": "far_away",
+        "isFavorite": false
     },
     {
         "id": 8,
@@ -59,7 +66,8 @@
         "bookTitle": "Why We Sleep: Unlocking the Power of Sleep and Dreams",
         "bookAuthor": "Matthew Walker",
         "personalNote": "Matthew Walker is a British scientist and professor of neuroscience and psychology at the University of California, Berkeley. His research focuses on the impact of sleep on human health and disease. Previously, he was a professor of psychiatry at Harvard Medical School.",
-        "bookCoverImageFileName": "why_we_sleep"
+        "bookCoverImageFileName": "why_we_sleep",
+        "isFavorite": false
     },
     {
         "id": 9,
@@ -67,7 +75,8 @@
         "bookTitle": "Why We Sleep: Unlocking the Power of Sleep and Dreams",
         "bookAuthor": "Matthew Walker",
         "personalNote": "Matthew Walker is a British scientist and professor of neuroscience and psychology at the University of California, Berkeley. His research focuses on the impact of sleep on human health and disease. Previously, he was a professor of psychiatry at Harvard Medical School.",
-        "bookCoverImageFileName": "why_we_sleep"
+        "bookCoverImageFileName": "why_we_sleep",
+        "isFavorite": false
     }
 ]
 
