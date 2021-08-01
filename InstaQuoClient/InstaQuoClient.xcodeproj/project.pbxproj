@@ -7,19 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		366F066426B61C3700CE1F96 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F066326B61C3700CE1F96 /* ImagePickerView.swift */; };
 		367428D926B47A17007A451F /* InstaQuoClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428D826B47A17007A451F /* InstaQuoClientApp.swift */; };
 		367428DB26B47A17007A451F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428DA26B47A17007A451F /* ContentView.swift */; };
 		367428DD26B47A1B007A451F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367428DC26B47A1B007A451F /* Assets.xcassets */; };
 		367428E026B47A1B007A451F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367428DF26B47A1B007A451F /* Preview Assets.xcassets */; };
+		367428ED26B47F20007A451F /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428EC26B47F20007A451F /* CardDetailView.swift */; };
+		367428F326B48AF5007A451F /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428F226B48AF5007A451F /* CardModel.swift */; };
+		367428F526B4A261007A451F /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428F426B4A261007A451F /* ModelData.swift */; };
+		367428FB26B4AA35007A451F /* atomic_habits.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 367428F726B4AA35007A451F /* atomic_habits.jpg */; };
+		367428FC26B4AA35007A451F /* far_away.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 367428F826B4AA35007A451F /* far_away.jpg */; };
+		367428FD26B4AA35007A451F /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 367428F926B4AA35007A451F /* data.json */; };
+		367428FE26B4AA35007A451F /* why_we_sleep.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 367428FA26B4AA35007A451F /* why_we_sleep.jpg */; };
+		3674290026B4AC2D007A451F /* CardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428FF26B4AC2D007A451F /* CardRowView.swift */; };
+		3674290226B4B87B007A451F /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674290126B4B87B007A451F /* CardListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		366F066326B61C3700CE1F96 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		367428D526B47A17007A451F /* InstaQuoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaQuoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		367428D826B47A17007A451F /* InstaQuoClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaQuoClientApp.swift; sourceTree = "<group>"; };
 		367428DA26B47A17007A451F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		367428DC26B47A1B007A451F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		367428DF26B47A1B007A451F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		367428E126B47A1B007A451F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		367428EC26B47F20007A451F /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		367428F226B48AF5007A451F /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		367428F426B4A261007A451F /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		367428F726B4AA35007A451F /* atomic_habits.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = atomic_habits.jpg; path = InstaQuoClient/Resources/atomic_habits.jpg; sourceTree = SOURCE_ROOT; };
+		367428F826B4AA35007A451F /* far_away.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = far_away.jpg; path = InstaQuoClient/Resources/far_away.jpg; sourceTree = SOURCE_ROOT; };
+		367428F926B4AA35007A451F /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = InstaQuoClient/Resources/data.json; sourceTree = SOURCE_ROOT; };
+		367428FA26B4AA35007A451F /* why_we_sleep.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = why_we_sleep.jpg; path = InstaQuoClient/Resources/why_we_sleep.jpg; sourceTree = SOURCE_ROOT; };
+		367428FF26B4AC2D007A451F /* CardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRowView.swift; sourceTree = "<group>"; };
+		3674290126B4B87B007A451F /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +53,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		366F066226B61BB400CE1F96 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		367428CC26B47A17007A451F = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +79,11 @@
 		367428D726B47A17007A451F /* InstaQuoClient */ = {
 			isa = PBXGroup;
 			children = (
+				366F066226B61BB400CE1F96 /* Controllers */,
+				367428F626B4A3B1007A451F /* Resources */,
+				367428E926B47E64007A451F /* ViewModels */,
+				367428E826B47E4E007A451F /* Models */,
+				367428E726B47E47007A451F /* Views */,
 				367428D826B47A17007A451F /* InstaQuoClientApp.swift */,
 				367428DA26B47A17007A451F /* ContentView.swift */,
 				367428DC26B47A1B007A451F /* Assets.xcassets */,
@@ -67,6 +99,44 @@
 				367428DF26B47A1B007A451F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		367428E726B47E47007A451F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				366F066326B61C3700CE1F96 /* ImagePickerView.swift */,
+				367428EC26B47F20007A451F /* CardDetailView.swift */,
+				367428FF26B4AC2D007A451F /* CardRowView.swift */,
+				3674290126B4B87B007A451F /* CardListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		367428E826B47E4E007A451F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				367428F226B48AF5007A451F /* CardModel.swift */,
+				367428F426B4A261007A451F /* ModelData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		367428E926B47E64007A451F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		367428F626B4A3B1007A451F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				367428F726B4AA35007A451F /* atomic_habits.jpg */,
+				367428F926B4AA35007A451F /* data.json */,
+				367428F826B4AA35007A451F /* far_away.jpg */,
+				367428FA26B4AA35007A451F /* why_we_sleep.jpg */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +196,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				367428FB26B4AA35007A451F /* atomic_habits.jpg in Resources */,
+				367428FC26B4AA35007A451F /* far_away.jpg in Resources */,
+				367428FE26B4AA35007A451F /* why_we_sleep.jpg in Resources */,
 				367428E026B47A1B007A451F /* Preview Assets.xcassets in Resources */,
+				367428FD26B4AA35007A451F /* data.json in Resources */,
 				367428DD26B47A1B007A451F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +212,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				367428ED26B47F20007A451F /* CardDetailView.swift in Sources */,
+				3674290026B4AC2D007A451F /* CardRowView.swift in Sources */,
 				367428DB26B47A17007A451F /* ContentView.swift in Sources */,
 				367428D926B47A17007A451F /* InstaQuoClientApp.swift in Sources */,
+				367428F326B48AF5007A451F /* CardModel.swift in Sources */,
+				366F066426B61C3700CE1F96 /* ImagePickerView.swift in Sources */,
+				3674290226B4B87B007A451F /* CardListView.swift in Sources */,
+				367428F526B4A261007A451F /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
