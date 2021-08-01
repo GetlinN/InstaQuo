@@ -13,12 +13,21 @@ struct CardDetailView: View {
 //    @State private var bookTitle: String = "Some book title"
 //    @State private var bookAuthor: String = "David Smith"
 //    @State private var personalNote: String = "This is a place for personal notes."
-
+    
+    @EnvironmentObject var modelData: ModelData
     @State var card: Card
+    
     let fontSize = CGFloat(20)
+    
+    var cardIndex: Int {
+        modelData.quoteCards.firstIndex(where: {$0.id == card.id})!
+    }
 
     var body: some View {
         ScrollView {
+            
+            FavouriteFeatureView(isSet: $modelData.quoteCards[cardIndex].isFavorite)
+            
             VStack(alignment: .leading) {
                 Label("Quote", systemImage: "1.circle")
                     .foregroundColor(Color.gray)
@@ -59,6 +68,7 @@ struct CardDetailView: View {
 //                    .lineSpacing(5)
             }
             
+            
 //            EditButton()
         }
         .navigationTitle("Selected Quote")
@@ -69,7 +79,11 @@ struct CardDetailView: View {
 }
 
 struct CardDetailView_Previews: PreviewProvider {
+    
+    static let modelData = ModelData()
+    
     static var previews: some View {
-        CardDetailView(card: quoteCards[0])
+        CardDetailView(card: ModelData().quoteCards[0])
+            .environmentObject(modelData)
     }
 }

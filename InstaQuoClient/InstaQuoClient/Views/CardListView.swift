@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CardListView: View {
+    
+    @EnvironmentObject var modelData: ModelData
+
     @State private var showingActionSheet: Bool = false
     @State private var showImagePicker: Bool = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
@@ -15,7 +18,7 @@ struct CardListView: View {
     @State private var showFavoritesOnly = false
     
     var filteredQuoteCards: [Card] {
-            quoteCards.filter { card in
+        modelData.quoteCards.filter { card in
                 (!showFavoritesOnly || card.isFavorite)
             }
         }
@@ -109,13 +112,11 @@ struct CardListView: View {
                 // Placeholder for ImagePicker()
 //                Text("Something awsome should be here!")
             })
-//            Spacer()д
+//            Spacer()
            
     }
     
-    func delete(at offsets: IndexSet) {
-           quoteCards.remove(atOffsets: offsets)
-    }
+   
 }
 
 struct CardListView_Previews: PreviewProvider {

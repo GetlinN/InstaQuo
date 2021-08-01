@@ -6,9 +6,18 @@
 //
 
 import Foundation
+import Combine
 
-// creates an array of cards that initialized from data.json
-var quoteCards: [Card] = load("data.json")
+
+//SwiftUI subscribes to observable object, and updates any views that need refreshing when the data changes.
+
+final class ModelData: ObservableObject {
+    
+    // creates an array of cards that initialized from data.json
+    @Published var quoteCards: [Card] = load("data.json")
+}
+
+
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data

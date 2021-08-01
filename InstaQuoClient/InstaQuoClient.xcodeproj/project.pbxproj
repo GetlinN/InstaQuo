@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		366F066426B61C3700CE1F96 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F066326B61C3700CE1F96 /* ImagePickerView.swift */; };
+		366F066626B6752400CE1F96 /* FavouriteFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */; };
 		367428D926B47A17007A451F /* InstaQuoClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428D826B47A17007A451F /* InstaQuoClientApp.swift */; };
 		367428DB26B47A17007A451F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428DA26B47A17007A451F /* ContentView.swift */; };
 		367428DD26B47A1B007A451F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367428DC26B47A1B007A451F /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		366F066326B61C3700CE1F96 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFeatureView.swift; sourceTree = "<group>"; };
 		367428D526B47A17007A451F /* InstaQuoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaQuoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		367428D826B47A17007A451F /* InstaQuoClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaQuoClientApp.swift; sourceTree = "<group>"; };
 		367428DA26B47A17007A451F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				367428EC26B47F20007A451F /* CardDetailView.swift */,
 				367428FF26B4AC2D007A451F /* CardRowView.swift */,
 				3674290126B4B87B007A451F /* CardListView.swift */,
+				366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				367428ED26B47F20007A451F /* CardDetailView.swift in Sources */,
+				366F066626B6752400CE1F96 /* FavouriteFeatureView.swift in Sources */,
 				3674290026B4AC2D007A451F /* CardRowView.swift in Sources */,
 				367428DB26B47A17007A451F /* ContentView.swift in Sources */,
 				367428D926B47A17007A451F /* InstaQuoClientApp.swift in Sources */,

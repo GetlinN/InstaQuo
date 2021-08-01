@@ -36,15 +36,18 @@ struct CardRowView: View {
 }
 
 struct CardRowView_Previews: PreviewProvider {
+    
+    static var quoteCards = ModelData().quoteCards
     static var previews: some View {
-                
+     
         Group {
             CardRowView(card: quoteCards[0])
             CardRowView(card: quoteCards[1])
-            CardRowView(card: quoteCards[2])
-            CardRowView(card: quoteCards[3])
-            CardRowView(card: quoteCards[4])
-            CardRowView(card: quoteCards[5])
+            
+//            CardRowView(card: quoteCards[2])
+//            CardRowView(card: quoteCards[3])
+//            CardRowView(card: quoteCards[4])
+//            CardRowView(card: quoteCards[5])
         }
 //        approximates a row in a list.
         .previewLayout(.fixed(width: 300, height: 80))
