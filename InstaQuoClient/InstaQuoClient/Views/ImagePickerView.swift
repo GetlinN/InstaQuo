@@ -10,13 +10,15 @@ import SwiftUI
 
 
 // coordinator - helps with different delegate functions provided bu UIImagePickerControllerDelegate.
-// Coordinator class for fetching the captured image from Camera.
+// Coordinator class for fetching the captured image from the camera or selected in photo library. It acts as a bridge between the UIKit and SwiftUI.
 
 class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
 //    takes in image and source type
     @Binding var imageSelected: UIImage?
     @Binding var isShown: Bool
+    
+//    is where we are defining whether the image is taken from the photo library or camera.
 //    var sourceType: UIImagePickerController.SourceType = .camera
     
     init(imageSelected: Binding<UIImage?>, isShown: Binding<Bool>) {
@@ -38,7 +40,7 @@ class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImageP
 }
 
 struct ImagePickerView: UIViewControllerRepresentable {
-    // ImagePicker is responsible for delegating the task to coordinator. The coordinator will do the work and give me an image
+    // ImagePicker is responsible for delegating the task to coordinator. The coordinator will do the work and give me an image. This helps us to use UIKit in SwiftUI) protocol.
     
     typealias UIViewControllerType = UIImagePickerController
     typealias Coordinator = ImagePickerCoordinator
@@ -51,6 +53,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
         return ImagePickerCoordinator(imageSelected: $imageSelected, isShown: $isShown)
     }
     
+//   used to configure the view and responds to any changes.
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePickerView>) {
         
     }
