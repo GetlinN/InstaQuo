@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		366F066426B61C3700CE1F96 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F066326B61C3700CE1F96 /* ImagePickerView.swift */; };
 		366F066626B6752400CE1F96 /* FavouriteFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */; };
+		3671854026B9A2DC009BAE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3671853F26B9A2DC009BAE47 /* GoogleService-Info.plist */; };
 		367428D926B47A17007A451F /* InstaQuoClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428D826B47A17007A451F /* InstaQuoClientApp.swift */; };
 		367428DB26B47A17007A451F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428DA26B47A17007A451F /* ContentView.swift */; };
 		367428DD26B47A1B007A451F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367428DC26B47A1B007A451F /* Assets.xcassets */; };
@@ -22,11 +23,14 @@
 		367428FE26B4AA35007A451F /* why_we_sleep.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 367428FA26B4AA35007A451F /* why_we_sleep.jpg */; };
 		3674290026B4AC2D007A451F /* CardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428FF26B4AC2D007A451F /* CardRowView.swift */; };
 		3674290226B4B87B007A451F /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674290126B4B87B007A451F /* CardListView.swift */; };
+		B2A9DD5E2EC2E009B01C4FA9 /* Pods_InstaQuoClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D8D20741DBBD62A28AC4B0 /* Pods_InstaQuoClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25D8D20741DBBD62A28AC4B0 /* Pods_InstaQuoClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaQuoClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		366F066326B61C3700CE1F96 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFeatureView.swift; sourceTree = "<group>"; };
+		3671853F26B9A2DC009BAE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		367428D526B47A17007A451F /* InstaQuoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaQuoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		367428D826B47A17007A451F /* InstaQuoClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaQuoClientApp.swift; sourceTree = "<group>"; };
 		367428DA26B47A17007A451F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 		367428FA26B4AA35007A451F /* why_we_sleep.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = why_we_sleep.jpg; path = InstaQuoClient/Resources/why_we_sleep.jpg; sourceTree = SOURCE_ROOT; };
 		367428FF26B4AC2D007A451F /* CardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRowView.swift; sourceTree = "<group>"; };
 		3674290126B4B87B007A451F /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
+		3C231035B6545496D13AD76A /* Pods-InstaQuoClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaQuoClient.release.xcconfig"; path = "Target Support Files/Pods-InstaQuoClient/Pods-InstaQuoClient.release.xcconfig"; sourceTree = "<group>"; };
+		DDA6724EC4EFC71E203DC97F /* Pods-InstaQuoClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaQuoClient.debug.xcconfig"; path = "Target Support Files/Pods-InstaQuoClient/Pods-InstaQuoClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A9DD5E2EC2E009B01C4FA9 /* Pods_InstaQuoClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +74,8 @@
 			children = (
 				367428D726B47A17007A451F /* InstaQuoClient */,
 				367428D626B47A17007A451F /* Products */,
+				4F5B2C10E8E1553FAA623B7E /* Pods */,
+				FC2C92E50EAAA7E8D9BB416E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +99,7 @@
 				367428DA26B47A17007A451F /* ContentView.swift */,
 				367428DC26B47A1B007A451F /* Assets.xcassets */,
 				367428E126B47A1B007A451F /* Info.plist */,
+				3671853F26B9A2DC009BAE47 /* GoogleService-Info.plist */,
 				367428DE26B47A1B007A451F /* Preview Content */,
 			);
 			path = InstaQuoClient;
@@ -142,6 +152,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		4F5B2C10E8E1553FAA623B7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDA6724EC4EFC71E203DC97F /* Pods-InstaQuoClient.debug.xcconfig */,
+				3C231035B6545496D13AD76A /* Pods-InstaQuoClient.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FC2C92E50EAAA7E8D9BB416E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25D8D20741DBBD62A28AC4B0 /* Pods_InstaQuoClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 367428E426B47A1B007A451F /* Build configuration list for PBXNativeTarget "InstaQuoClient" */;
 			buildPhases = (
+				5D539192A3B50D9CA617A117 /* [CP] Check Pods Manifest.lock */,
 				367428D126B47A17007A451F /* Sources */,
 				367428D226B47A17007A451F /* Frameworks */,
 				367428D326B47A17007A451F /* Resources */,
+				CFD97EAB68772D4FE798D43E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,10 +235,53 @@
 				367428E026B47A1B007A451F /* Preview Assets.xcassets in Resources */,
 				367428FD26B4AA35007A451F /* data.json in Resources */,
 				367428DD26B47A1B007A451F /* Assets.xcassets in Resources */,
+				3671854026B9A2DC009BAE47 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D539192A3B50D9CA617A117 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstaQuoClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFD97EAB68772D4FE798D43E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstaQuoClient/Pods-InstaQuoClient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstaQuoClient/Pods-InstaQuoClient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InstaQuoClient/Pods-InstaQuoClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		367428D126B47A17007A451F /* Sources */ = {
@@ -348,6 +421,7 @@
 		};
 		367428E526B47A1B007A451F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDA6724EC4EFC71E203DC97F /* Pods-InstaQuoClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -369,6 +443,7 @@
 		};
 		367428E626B47A1B007A451F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C231035B6545496D13AD76A /* Pods-InstaQuoClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
