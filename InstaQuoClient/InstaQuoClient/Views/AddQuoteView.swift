@@ -46,7 +46,7 @@ struct AddQuoteView: View {
                     let card = Card(quote: quote, bookTitle: bookTitle, bookAuthor: bookAuthor, personalNote: personalNote, isFavorite: isFavorite)
                     didAddCard(card)
                 }.disabled(quote.isEmpty || bookAuthor.isEmpty || bookTitle.isEmpty).padding()
-            }.navigationTitle("New Quote Card is about to create")
+            }.navigationTitle("Add quote")
             
         }
         
