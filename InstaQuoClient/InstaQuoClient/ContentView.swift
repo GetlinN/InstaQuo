@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        CardListView()
+        CardListView(cardListViewModel: CardListViewModel())
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(ModelData())
+//            .environmentObject(ModelData())
 //        You apply this modifier so that views further down in the view hierarchy can read data objects passed down through the environment.
     }
 }

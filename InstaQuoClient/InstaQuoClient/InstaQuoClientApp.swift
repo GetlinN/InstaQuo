@@ -6,15 +6,21 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 @main
 struct InstaQuoClientApp: App {
-    @StateObject private var modelData = ModelData()
+//    @StateObject private var modelData = ModelData()
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(modelData)
+//                .environmentObject(modelData)
         }
     }
 }

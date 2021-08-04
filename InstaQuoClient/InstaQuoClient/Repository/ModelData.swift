@@ -14,7 +14,8 @@ import Combine
 final class ModelData: ObservableObject {
     
     // creates an array of cards that initialized from data.json
-    @Published var quoteCards: [Card] = load("data.json")
+    @Published var quoteCards: [Card] = []
+//        = load("data.json")
 }
 
 

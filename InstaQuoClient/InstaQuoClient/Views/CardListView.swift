@@ -6,54 +6,72 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+
 
 struct CardListView: View {
     
-    @EnvironmentObject var modelData: ModelData
+    @ObservedObject var cardListViewModel: CardListViewModel
+    
+//    @EnvironmentObject var modelData: ModelData
 
     @State private var showingActionSheet: Bool = false
     @State private var showImagePicker: Bool = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var imageSelected: UIImage?
     @State private var showFavoritesOnly = false
+    @State private var showingForm = false // for user to add new question
     
-    var filteredQuoteCards: [Card] {
-        modelData.quoteCards.filter { card in
-                (!showFavoritesOnly || card.isFavorite)
-            }
-        }
+//    Model
+//    var filteredQuoteCards: [Card] {
+//        modelData.quoteCards.filter { card in
+//                (!showFavoritesOnly || card.isFavorite)
+//            }
+//        }
 
+
+//    New filtering
+//    var filteredQuoteCards: [CardViewModel] {
+//        cardListViewModel.cardViewModels.filter {
+//            $0.quoteCard.isFavorite == showFavoritesOnly
+//        }
+        
     
 //    let tabBarImageNames = ["house", "plus.app.fill", "person"]
+    
+
     
     var body: some View {
             NavigationView {
                 VStack {
+                    Toggle(isOn: $showFavoritesOnly) { Text("Favorites only") }.padding()
                     
                     List {
-                        
-                        Toggle(isOn: $showFavoritesOnly, label: {
-                            Text("Favorites only")
-                        })
-                        
-                        ForEach(filteredQuoteCards) { card in
-                            NavigationLink(destination: CardDetailView(card: card)) {
-                                CardRowView(card: card)
+                        ForEach(cardListViewModel.cardViewModels.filter {
+                            $0.quoteCard.isFavorite || !showFavoritesOnly}) { cardVM in
+                            NavigationLink(destination: CardDetailView(card: cardVM)) {
+                                CardRowView(card: cardVM)
                             }
-                        }
+                        }.onDelete(perform: delete)
+                        
+//                        ForEach(filteredQuoteCards) { card in
+//                            NavigationLink(destination: CardDetailView(card: card)) {
+//                                CardRowView(card: card)
+//                            }
+//                        }
                     }
                     
-                    // begin : this is to remove later, used for feature develompent and testing
+                    Text("\(cardListViewModel.cardViewModels.count)")
                     
-                    Divider()
-                    Text("Selected Image is displayed here").foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                    
-                    
-                    Image(uiImage: imageSelected ?? UIImage(named: "why_we_sleep")!)
-                        .resizable()
-                        .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).scaledToFill()
-//                        .padding()
-                    // end
+//                    // begin : this is to remove later, used for feature develompent and testing
+//                    
+//                    Divider()
+//                    Text("Selected Image is displayed here").foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+//                    
+//                    
+//                    Image(uiImage: imageSelected ?? UIImage(named: "why_we_sleep")!)
+//                        .resizable()
+//                        .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).scaledToFill()
                     
 //                    tab bars
                     HStack {
@@ -89,10 +107,15 @@ struct CardListView: View {
                         })
                         
                         Spacer()
-                        Button(action: {}) {
+                        Button(action: {showingForm = true}) {
                             Image(systemName: "person")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
+                        .sheet(isPresented: $showingForm, content: {
+                            AddQuoteView {(card) in
+                                cardListViewModel.add(card)
+                                showingForm = false}
+                        })
                         Spacer()
 
                         
@@ -116,13 +139,16 @@ struct CardListView: View {
            
     }
     
+    private func delete(at offsets: IndexSet) {
+        offsets.map {cardListViewModel.cardViewModels[$0].quoteCard}.forEach(cardListViewModel.remove)
+    }
    
 }
 
 struct CardListView_Previews: PreviewProvider {
     static var previews: some View {
         
-        CardListView()
+        CardListView(cardListViewModel: CardListViewModel())
         
 //        ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) { deviceName in
 //            CardListView()
