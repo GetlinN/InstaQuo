@@ -25,10 +25,12 @@
 		3674290026B4AC2D007A451F /* CardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428FF26B4AC2D007A451F /* CardRowView.swift */; };
 		3674290226B4B87B007A451F /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674290126B4B87B007A451F /* CardListView.swift */; };
 		36A6219B26B9A5D300B46F5C /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A6219A26B9A5D300B46F5C /* CardRepository.swift */; };
+		36B41CD326BAFC7B005C8684 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B41CD226BAFC7B005C8684 /* ScanDocumentView.swift */; };
 		36D7A98126B9D17F005D1AFA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 36D7A98026B9D17F005D1AFA /* FirebaseFirestore */; };
 		36D7A98326B9D17F005D1AFA /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 36D7A98226B9D17F005D1AFA /* FirebaseFirestoreSwift-Beta */; };
 		36D7A98526B9EC9B005D1AFA /* CardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D7A98426B9EC9B005D1AFA /* CardListViewModel.swift */; };
 		36D7A98726B9ED74005D1AFA /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D7A98626B9ED74005D1AFA /* CardViewModel.swift */; };
+		36FCD8FC26BB63E4006D4741 /* experiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCD8FB26BB63E4006D4741 /* experiment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,8 +54,10 @@
 		367428FF26B4AC2D007A451F /* CardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRowView.swift; sourceTree = "<group>"; };
 		3674290126B4B87B007A451F /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		36A6219A26B9A5D300B46F5C /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
+		36B41CD226BAFC7B005C8684 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
 		36D7A98426B9EC9B005D1AFA /* CardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModel.swift; sourceTree = "<group>"; };
 		36D7A98626B9ED74005D1AFA /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		36FCD8FB26BB63E4006D4741 /* experiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = experiment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 				3674290126B4B87B007A451F /* CardListView.swift */,
 				366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */,
 				36609DF526BA3CC000A04CA0 /* AddQuoteView.swift */,
+				36B41CD226BAFC7B005C8684 /* ScanDocumentView.swift */,
+				36FCD8FB26BB63E4006D4741 /* experiment.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 				36609DF626BA3CC000A04CA0 /* AddQuoteView.swift in Sources */,
 				367428D926B47A17007A451F /* InstaQuoClientApp.swift in Sources */,
 				367428F326B48AF5007A451F /* CardModel.swift in Sources */,
+				36B41CD326BAFC7B005C8684 /* ScanDocumentView.swift in Sources */,
 				366F066426B61C3700CE1F96 /* ImagePickerView.swift in Sources */,
+				36FCD8FC26BB63E4006D4741 /* experiment.swift in Sources */,
 				36D7A98726B9ED74005D1AFA /* CardViewModel.swift in Sources */,
 				36A6219B26B9A5D300B46F5C /* CardRepository.swift in Sources */,
 				3674290226B4B87B007A451F /* CardListView.swift in Sources */,
@@ -392,6 +400,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"InstaQuoClient/Preview Content\"";
+				DEVELOPMENT_TEAM = 3CW8J4LHN6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = InstaQuoClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -413,6 +422,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"InstaQuoClient/Preview Content\"";
+				DEVELOPMENT_TEAM = 3CW8J4LHN6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = InstaQuoClient/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

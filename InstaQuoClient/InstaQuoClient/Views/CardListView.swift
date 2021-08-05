@@ -22,21 +22,10 @@ struct CardListView: View {
     @State private var showFavoritesOnly = false
     @State private var showingForm = false // for user to add new question
     
-//    Model
-//    var filteredQuoteCards: [Card] {
-//        modelData.quoteCards.filter { card in
-//                (!showFavoritesOnly || card.isFavorite)
-//            }
-//        }
+    @State private var showingScanningView = false
+    @State private var recognizedText = "Recognized text will be displayed here."
 
 
-//    New filtering
-//    var filteredQuoteCards: [CardViewModel] {
-//        cardListViewModel.cardViewModels.filter {
-//            $0.quoteCard.isFavorite == showFavoritesOnly
-//        }
-        
-    
 //    let tabBarImageNames = ["house", "plus.app.fill", "person"]
     
 
@@ -49,37 +38,54 @@ struct CardListView: View {
                     List {
                         ForEach(cardListViewModel.cardViewModels.filter {
                             $0.quoteCard.isFavorite || !showFavoritesOnly}) { cardVM in
-                            NavigationLink(destination: CardDetailView(card: cardVM)) {
+                            NavigationLink(destination: CardDetailView(card: cardVM, didUpdateCard: {(card) in
+                                    cardListViewModel.update(card)
+                                    }, didDeleteCard: {(card) in
+                                        cardListViewModel.remove(card)
+                                    }, didAddCard: {_ in print("done")})) {
                                 CardRowView(card: cardVM)
                             }
                         }.onDelete(perform: delete)
-                        
-//                        ForEach(filteredQuoteCards) { card in
-//                            NavigationLink(destination: CardDetailView(card: card)) {
-//                                CardRowView(card: card)
-//                            }
-//                        }
                     }
                     
-                    Text("\(cardListViewModel.cardViewModels.count)")
+                    Divider()
+                    Text("# of records in db: \(cardListViewModel.cardViewModels.count)").padding(10)
                     
-//                    // begin : this is to remove later, used for feature develompent and testing
-//                    
-//                    Divider()
-//                    Text("Selected Image is displayed here").foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-//                    
-//                    
+//                    remove later
+                    ScrollView {
+                        
+                        
+                        // begin : this is to remove later, used for feature develompent and testing
+                        
+                        Divider()
+                        Text(recognizedText).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/).padding(20)
+                    }
+                    
+                    
 //                    Image(uiImage: imageSelected ?? UIImage(named: "why_we_sleep")!)
 //                        .resizable()
 //                        .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).scaledToFill()
                     
 //                    tab bars
                     HStack {
+                        
+//                        Temporarily Scan Button
                         Spacer()
-                        Button(action: {}) {
-                            Image(systemName: "house")
+                        Button(action: {showingScanningView = true}) {
+                            Image(systemName: "scanner")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
+                        .sheet(isPresented: $showingForm, content: {
+                            AddQuoteView {(card) in
+                                cardListViewModel.add(card)
+                                showingForm = false}
+                        })
+                        .sheet(isPresented: $showingScanningView, content: {
+                            ScanDocumentView(recognizedText: self.$recognizedText)
+                        })
+//                        Temporarily Scan Button
+
+                        
                         Spacer()
                         
                         Button(action: {
@@ -108,13 +114,22 @@ struct CardListView: View {
                         
                         Spacer()
                         Button(action: {showingForm = true}) {
-                            Image(systemName: "person")
+                            Image(systemName: "pencil")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
                         .sheet(isPresented: $showingForm, content: {
-                            AddQuoteView {(card) in
+                            
+                            CardDetailView(
+                            card: CardViewModel(quoteCard: Card(quote: "", bookTitle: "", bookAuthor: "", personalNote: "")),
+                               didUpdateCard: {_ in print("done")},
+                               didDeleteCard: {_ in print("done")},
+                               didAddCard: {(card) in
                                 cardListViewModel.add(card)
-                                showingForm = false}
+                                showingForm = false})
+                            
+//                            AddQuoteView {(card) in
+//                                cardListViewModel.add(card)
+//                                showingForm = false}
                         })
                         Spacer()
 
