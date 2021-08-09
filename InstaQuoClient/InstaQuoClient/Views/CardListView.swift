@@ -28,8 +28,6 @@ struct CardListView: View {
 
 //    let tabBarImageNames = ["house", "plus.app.fill", "person"]
     
-
-    
     var body: some View {
             NavigationView {
                 VStack {
@@ -75,13 +73,17 @@ struct CardListView: View {
                             Image(systemName: "scanner")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
-                        .sheet(isPresented: $showingForm, content: {
-                            AddQuoteView {(card) in
-                                cardListViewModel.add(card)
-                                showingForm = false}
-                        })
                         .sheet(isPresented: $showingScanningView, content: {
                             ScanDocumentView(recognizedText: self.$recognizedText)
+                            
+//                                    CardDetailView(
+//                                       card: CardViewModel(quoteCard: Card(quote: recognizedText, bookTitle: "", bookAuthor: "", personalNote: "")),
+//                                          didUpdateCard: {_ in print("done")},
+//                                          didDeleteCard: {_ in print("done")},
+//                                          didAddCard: {(card) in
+//                                           cardListViewModel.add(card)
+//                                           showingForm = false}, isEditModeOn: true, isNewCard: true)
+                            
                         })
 //                        Temporarily Scan Button
 
@@ -113,6 +115,7 @@ struct CardListView: View {
                         })
                         
                         Spacer()
+//                         This Button create new empty form
                         Button(action: {showingForm = true}) {
                             Image(systemName: "pencil")
                                 .font(.system(size: 35, weight: .regular))
@@ -125,31 +128,19 @@ struct CardListView: View {
                                didDeleteCard: {_ in print("done")},
                                didAddCard: {(card) in
                                 cardListViewModel.add(card)
-                                showingForm = false})
-                            
-//                            AddQuoteView {(card) in
-//                                cardListViewModel.add(card)
-//                                showingForm = false}
+                                showingForm = false}, isEditModeOn: true, isNewCard: true)
                         })
                         Spacer()
-
-                        
-//                        ForEach(0..<3) { num in
-//                            Spacer()
-//                            Image(systemName: tabBarImageNames[num])
-//                                .font(.system(size: 30, weight: .regular))
-//                            Spacer()
-//                        }
                     }
-                
                 }
                 .navigationTitle("Quotes")
-            }.sheet(isPresented: $showImagePicker, content: {
-                
-                ImagePickerView(imageSelected: $imageSelected, isShown: $showImagePicker, sourceType: self.sourceType)
-                // Placeholder for ImagePicker()
-//                Text("Something awsome should be here!")
-            })
+            }
+//            .sheet(isPresented: $showImagePicker, content: {
+//
+//                ImagePickerView(imageSelected: $imageSelected, isShown: $showImagePicker, sourceType: self.sourceType)
+//                // Placeholder for ImagePicker()
+////                Text("Something awsome should be here!")
+//            })
 //            Spacer()
            
     }

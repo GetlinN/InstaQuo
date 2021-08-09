@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36609DF626BA3CC000A04CA0 /* AddQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36609DF526BA3CC000A04CA0 /* AddQuoteView.swift */; };
 		366F066426B61C3700CE1F96 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F066326B61C3700CE1F96 /* ImagePickerView.swift */; };
 		366F066626B6752400CE1F96 /* FavouriteFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */; };
 		3671854026B9A2DC009BAE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3671853F26B9A2DC009BAE47 /* GoogleService-Info.plist */; };
@@ -34,7 +33,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		36609DF526BA3CC000A04CA0 /* AddQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuoteView.swift; sourceTree = "<group>"; };
 		366F066326B61C3700CE1F96 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFeatureView.swift; sourceTree = "<group>"; };
 		3671853F26B9A2DC009BAE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				367428FF26B4AC2D007A451F /* CardRowView.swift */,
 				3674290126B4B87B007A451F /* CardListView.swift */,
 				366F066526B6752400CE1F96 /* FavouriteFeatureView.swift */,
-				36609DF526BA3CC000A04CA0 /* AddQuoteView.swift */,
 				36B41CD226BAFC7B005C8684 /* ScanDocumentView.swift */,
 				36FCD8FB26BB63E4006D4741 /* experiment.swift */,
 			);
@@ -261,7 +258,6 @@
 				366F066626B6752400CE1F96 /* FavouriteFeatureView.swift in Sources */,
 				3674290026B4AC2D007A451F /* CardRowView.swift in Sources */,
 				367428DB26B47A17007A451F /* ContentView.swift in Sources */,
-				36609DF626BA3CC000A04CA0 /* AddQuoteView.swift in Sources */,
 				367428D926B47A17007A451F /* InstaQuoClientApp.swift in Sources */,
 				367428F326B48AF5007A451F /* CardModel.swift in Sources */,
 				36B41CD326BAFC7B005C8684 /* ScanDocumentView.swift in Sources */,

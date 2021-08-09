@@ -11,8 +11,9 @@ struct CardDetailView: View {
     
     @ObservedObject var card: CardViewModel
     
-    @State private var isEditing = false
-    
+    @State var isEditing: Bool
+    @State var isNewCard: Bool
+
     let fontSize = CGFloat(20)
     
 //   TODO: is it possible to make it optional
@@ -20,8 +21,21 @@ struct CardDetailView: View {
     var didDeleteCard: (_ card: Card) -> Void
     var didAddCard: (_ card: Card) -> Void
     
+    init(card: CardViewModel,
+         didUpdateCard: @escaping (_ card: Card) -> Void,
+         didDeleteCard: @escaping (_ card: Card) -> Void,
+         didAddCard: @escaping (_ card: Card) -> Void,
+         isEditModeOn: Bool = false,
+         isNewCard: Bool = false) {
+        self.card = card
+        self.didUpdateCard = didUpdateCard
+        self.didDeleteCard = didDeleteCard
+        self.didAddCard = didAddCard
+        _isEditing = State(initialValue: isEditModeOn)
+        _isNewCard = State(initialValue: isNewCard)
+    }
+    
     @Environment(\.presentationMode) var presentationMode
-
     
     var body: some View {
         
@@ -82,25 +96,18 @@ struct CardDetailView: View {
                     .disabled(!isEditing)
                     .padding(.init(top: 15, leading: 25, bottom: 15, trailing: 25))
                 }
-                
-                
             }
             
-//            TODO
-//            FavouriteFeatureView(isSet: $cardListViewModel.cardViewModels[cardIndex].quoteCard.isFavorite)
-            
-//            FavouriteFeatureView(isSet: $modelData.quoteCards[cardIndex].isFavorite)
-            
-
             HStack {
                 Button(action: {
                     if isEditing {
-                        didUpdateCard(card.quoteCard)
-                        isEditing.toggle()
-                    } else {
-                        isEditing.toggle()
+                        if isNewCard {
+                            didAddCard(card.quoteCard)
+                        } else {
+                            didUpdateCard(card.quoteCard)
+                        }
                     }
-                    
+                    isEditing.toggle()
                 }, label: {
                     Text(isEditing ? "Done editing": "Edit card")
                 })
@@ -118,8 +125,6 @@ struct CardDetailView: View {
         }
         .navigationTitle("Selected Quote")
         .navigationBarTitleDisplayMode(.inline)
-//        .fixedSize(horizontal: false, vertical: true)
-//        .toolbar { EditButton() }
     }
 }
 
@@ -129,9 +134,7 @@ struct CardDetailView_Previews: PreviewProvider {
     static let fakeCard = Card(quote: "Humans are not sleeping the way nature intended. The number of sleep bouts, the duration of sleep, and when sleep occurs has all been comprehensively distorted by modernity.", bookTitle: "Why We Sleep: Unlocking the Power of Sleep and Dreams", bookAuthor: "Matthew Walker", personalNote: "Matthew Walker is a British scientist and professor of neuroscience and psychology at the University of California, Berkeley. His research focuses on the impact of sleep on human health and disease. Previously, he was a professor of psychiatry at Harvard Medical School.", isFavorite: true)
 
     static var previews: some View {
-        CardDetailView(card: CardViewModel(quoteCard: fakeCard), didUpdateCard: {_ in print("done")}, didDeleteCard: {_ in print("done")}, didAddCard: {_ in print("done")})
-//        CardDetailView(card: ModelData().quoteCards[0])
-//            .environmentObject(modelData)
+        CardDetailView(card: CardViewModel(quoteCard: fakeCard), didUpdateCard: {_ in print("done")}, didDeleteCard: {_ in print("done")}, didAddCard: {_ in print("done")}, isEditModeOn: true)
     }
 }
 
