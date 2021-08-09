@@ -23,7 +23,7 @@ struct CardListView: View {
     @State private var showingForm = false // for user to add new question
     
     @State private var showingScanningView = false
-    @State private var recognizedText = "Recognized text will be displayed here."
+    @State private var recognizedText = ""
 
 
 //    let tabBarImageNames = ["house", "plus.app.fill", "person"]
@@ -69,12 +69,25 @@ struct CardListView: View {
                         
 //                        Temporarily Scan Button
                         Spacer()
-                        Button(action: {showingScanningView = true}) {
-                            Image(systemName: "scanner")
+                        Button(action: {showingForm = true}) {
+                            Image(systemName: "pencil")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
-                        .sheet(isPresented: $showingScanningView, content: {
-                            ScanDocumentView(recognizedText: self.$recognizedText)
+                        .sheet(isPresented: $showingForm, content: {
+                            CardDetailView(
+                                card: CardViewModel(quoteCard: Card(quote: recognizedText, bookTitle: "", bookAuthor: "", personalNote: "")),
+                                didUpdateCard: {_ in print("done")},
+                                didDeleteCard: {_ in print("done")},
+                                didAddCard: {(card) in
+                                cardListViewModel.add(card)
+                                showingForm = false},
+                                isEditModeOn: true,
+                                isNewCard: true)
+                        })
+                        
+                        
+//                        .sheet(isPresented: $showingScanningView, content: {
+//                            ScanDocumentView(recognizedText: self.$recognizedText)
                             
 //                                    CardDetailView(
 //                                       card: CardViewModel(quoteCard: Card(quote: recognizedText, bookTitle: "", bookAuthor: "", personalNote: "")),
@@ -84,7 +97,7 @@ struct CardListView: View {
 //                                           cardListViewModel.add(card)
 //                                           showingForm = false}, isEditModeOn: true, isNewCard: true)
                             
-                        })
+//                        })
 //                        Temporarily Scan Button
 
                         
@@ -116,19 +129,21 @@ struct CardListView: View {
                         
                         Spacer()
 //                         This Button create new empty form
-                        Button(action: {showingForm = true}) {
-                            Image(systemName: "pencil")
+                        Button(action: {showingScanningView = true}) {
+                            Image(systemName: "scanner")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
-                        .sheet(isPresented: $showingForm, content: {
-                            
+                        .sheet(isPresented: $showingScanningView, content: {
                             CardDetailView(
-                            card: CardViewModel(quoteCard: Card(quote: "", bookTitle: "", bookAuthor: "", personalNote: "")),
-                               didUpdateCard: {_ in print("done")},
-                               didDeleteCard: {_ in print("done")},
-                               didAddCard: {(card) in
+                                card: CardViewModel(quoteCard: Card(quote: recognizedText, bookTitle: "", bookAuthor: "", personalNote: "")),
+                                didUpdateCard: {_ in print("done")},
+                                didDeleteCard: {_ in print("done")},
+                                didAddCard: {(card) in
                                 cardListViewModel.add(card)
-                                showingForm = false}, isEditModeOn: true, isNewCard: true)
+                                showingScanningView = false},
+                                isEditModeOn: true,
+                                isNewCard: true,
+                                isScanModeOn: true)
                         })
                         Spacer()
                     }

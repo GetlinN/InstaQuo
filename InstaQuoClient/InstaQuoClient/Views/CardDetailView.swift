@@ -13,7 +13,9 @@ struct CardDetailView: View {
     
     @State var isEditing: Bool
     @State var isNewCard: Bool
-
+    @State var isScanModeOn: Bool
+    @State private var recognizedText = "Recognized text will be displayed here."
+    
     let fontSize = CGFloat(20)
     
 //   TODO: is it possible to make it optional
@@ -26,13 +28,15 @@ struct CardDetailView: View {
          didDeleteCard: @escaping (_ card: Card) -> Void,
          didAddCard: @escaping (_ card: Card) -> Void,
          isEditModeOn: Bool = false,
-         isNewCard: Bool = false) {
+         isNewCard: Bool = false,
+         isScanModeOn: Bool = false) {
         self.card = card
         self.didUpdateCard = didUpdateCard
         self.didDeleteCard = didDeleteCard
         self.didAddCard = didAddCard
         _isEditing = State(initialValue: isEditModeOn)
         _isNewCard = State(initialValue: isNewCard)
+        _isScanModeOn = State(initialValue: isScanModeOn)
     }
     
     @Environment(\.presentationMode) var presentationMode
@@ -41,7 +45,7 @@ struct CardDetailView: View {
         
         ScrollView {
             VStack {
-                Text("State: \(isEditing.description)")
+                Text("Editing: \(isEditing.description)")
                
                 VStack(alignment: .leading) {
                     Label("Quote", systemImage: "1.circle")
@@ -125,6 +129,9 @@ struct CardDetailView: View {
         }
         .navigationTitle("Selected Quote")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $isScanModeOn, content: {
+            ScanDocumentView(recognizedText: self.$card.quoteCard.quote)
+        })
     }
 }
 
