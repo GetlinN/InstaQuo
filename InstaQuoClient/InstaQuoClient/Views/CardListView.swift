@@ -46,31 +46,25 @@ struct CardListView: View {
                         }.onDelete(perform: delete)
                     }
                     
+//                    for testing/debugging
                     Divider()
                     Text("# of records in db: \(cardListViewModel.cardViewModels.count)").padding(10)
                     
-//                    remove later
-                    ScrollView {
-                        
-                        
-                        // begin : this is to remove later, used for feature develompent and testing
-                        
-                        Divider()
-                        Text(recognizedText).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/).padding(20)
-                    }
-                    
+//                    for testing
+//                    ScrollView {
+//                        Text(recognizedText).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/).padding(20)
+//                    }
                     
 //                    Image(uiImage: imageSelected ?? UIImage(named: "why_we_sleep")!)
 //                        .resizable()
 //                        .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).scaledToFill()
                     
-//                    tab bars
                     HStack {
                         
-//                        Temporarily Scan Button
+//                        Scan Button
                         Spacer()
                         Button(action: {showingForm = true}) {
-                            Image(systemName: "pencil")
+                            Image(systemName: "pencil.tip.crop.circle.badge.plus")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
                         .sheet(isPresented: $showingForm, content: {
@@ -84,54 +78,21 @@ struct CardListView: View {
                                 isEditModeOn: true,
                                 isNewCard: true)
                         })
-                        
-                        
-//                        .sheet(isPresented: $showingScanningView, content: {
-//                            ScanDocumentView(recognizedText: self.$recognizedText)
-                            
-//                                    CardDetailView(
-//                                       card: CardViewModel(quoteCard: Card(quote: recognizedText, bookTitle: "", bookAuthor: "", personalNote: "")),
-//                                          didUpdateCard: {_ in print("done")},
-//                                          didDeleteCard: {_ in print("done")},
-//                                          didAddCard: {(card) in
-//                                           cardListViewModel.add(card)
-//                                           showingForm = false}, isEditModeOn: true, isNewCard: true)
-                            
-//                        })
-//                        Temporarily Scan Button
+//                        Scan Button
 
                         
                         Spacer()
-                        
                         Button(action: {
                             self.showingActionSheet = true
                         }) {
-                            Image(systemName: "plus.app.fill")
+                            Image(systemName: "person.circle.fill")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
-                        .actionSheet(isPresented: $showingActionSheet, content: {
-                            
-                            ActionSheet(title: Text("Select Photo"),message: Text("Choose"), buttons: [.default(Text("Photo Library")) {
-                                self.showImagePicker = true
-                                self.sourceType = .photoLibrary
-                            },
-                            .default(Text("Camera")) {
-                                self.showImagePicker = true
-                                self.sourceType = .camera
-                            },
-                            .default(Text("Scan")) {
-                                self.showImagePicker = true
-                                self.sourceType = .camera
-                            },
-                            .cancel()
-                            ])
-                        })
                         
                         Spacer()
-//                         This Button create new empty form
                         Button(action: {showingScanningView = true}) {
-                            Image(systemName: "scanner")
-                                .font(.system(size: 35, weight: .regular))
+                            Image(systemName: "camera.viewfinder")
+                                .font(.system(size: 40, weight: .regular))
                         }.padding()
                         .sheet(isPresented: $showingScanningView, content: {
                             CardDetailView(
