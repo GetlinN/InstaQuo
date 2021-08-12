@@ -20,7 +20,7 @@ final class CardRepository: ObservableObject {
     }
     
     func get() {
-        db.collection(path).addSnapshotListener {(snapshot, error) in
+        db.collection(path).order(by: "dateCreated", descending: true).addSnapshotListener {(snapshot, error) in
             if let error = error {
                 print(error)
                 return

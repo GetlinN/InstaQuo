@@ -5,11 +5,10 @@
 //  Created by Nataliia Getlin on 7/30/21.
 //
 
-//import Foundation
+import Foundation
 //import SwiftUI
 //import FirebaseFirestore
 import FirebaseFirestoreSwift
-
 
 struct Card: Codable, Identifiable {
     @DocumentID var id: String?
@@ -18,6 +17,7 @@ struct Card: Codable, Identifiable {
     var bookAuthor: String
     var personalNote: String
     var isFavorite: Bool = false
+    var dateCreated = Date()
 }
 
 //BEFORE

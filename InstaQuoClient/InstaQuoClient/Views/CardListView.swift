@@ -22,24 +22,11 @@ struct CardListView: View {
     @State private var showFavoritesOnly = false
     @State private var showingForm = false // for user to add new question
     
-//    Model
-//    var filteredQuoteCards: [Card] {
-//        modelData.quoteCards.filter { card in
-//                (!showFavoritesOnly || card.isFavorite)
-//            }
-//        }
+    @State private var showingScanningView = false
+    @State private var recognizedText = ""
 
 
-//    New filtering
-//    var filteredQuoteCards: [CardViewModel] {
-//        cardListViewModel.cardViewModels.filter {
-//            $0.quoteCard.isFavorite == showFavoritesOnly
-//        }
-        
-    
 //    let tabBarImageNames = ["house", "plus.app.fill", "person"]
-    
-
     
     var body: some View {
             NavigationView {
@@ -49,92 +36,87 @@ struct CardListView: View {
                     List {
                         ForEach(cardListViewModel.cardViewModels.filter {
                             $0.quoteCard.isFavorite || !showFavoritesOnly}) { cardVM in
-                            NavigationLink(destination: CardDetailView(card: cardVM)) {
+                            NavigationLink(destination: CardDetailView(card: cardVM, didUpdateCard: {(card) in
+                                    cardListViewModel.update(card)
+                                    }, didDeleteCard: {(card) in
+                                        cardListViewModel.remove(card)
+                                    }, didAddCard: {_ in print("done")})) {
                                 CardRowView(card: cardVM)
                             }
                         }.onDelete(perform: delete)
-                        
-//                        ForEach(filteredQuoteCards) { card in
-//                            NavigationLink(destination: CardDetailView(card: card)) {
-//                                CardRowView(card: card)
-//                            }
-//                        }
                     }
                     
-                    Text("\(cardListViewModel.cardViewModels.count)")
+//                    for testing/debugging
+                    Divider()
+                    Text("# of records in db: \(cardListViewModel.cardViewModels.count)").padding(10)
                     
-//                    // begin : this is to remove later, used for feature develompent and testing
-//                    
-//                    Divider()
-//                    Text("Selected Image is displayed here").foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-//                    
-//                    
+//                    for testing
+//                    ScrollView {
+//                        Text(recognizedText).foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/).padding(20)
+//                    }
+                    
 //                    Image(uiImage: imageSelected ?? UIImage(named: "why_we_sleep")!)
 //                        .resizable()
 //                        .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).scaledToFill()
                     
-//                    tab bars
                     HStack {
-                        Spacer()
-                        Button(action: {}) {
-                            Image(systemName: "house")
-                                .font(.system(size: 35, weight: .regular))
-                        }.padding()
-                        Spacer()
                         
-                        Button(action: {
-                            self.showingActionSheet = true
-                        }) {
-                            Image(systemName: "plus.app.fill")
-                                .font(.system(size: 35, weight: .regular))
-                        }.padding()
-                        .actionSheet(isPresented: $showingActionSheet, content: {
-                            
-                            ActionSheet(title: Text("Select Photo"),message: Text("Choose"), buttons: [.default(Text("Photo Library")) {
-                                self.showImagePicker = true
-                                self.sourceType = .photoLibrary
-                            },
-                            .default(Text("Camera")) {
-                                self.showImagePicker = true
-                                self.sourceType = .camera
-                            },
-                            .default(Text("Scan")) {
-                                self.showImagePicker = true
-                                self.sourceType = .camera
-                            },
-                            .cancel()
-                            ])
-                        })
-                        
+//                        Scan Button
                         Spacer()
                         Button(action: {showingForm = true}) {
-                            Image(systemName: "person")
+                            Image(systemName: "pencil.tip.crop.circle.badge.plus")
                                 .font(.system(size: 35, weight: .regular))
                         }.padding()
                         .sheet(isPresented: $showingForm, content: {
-                            AddQuoteView {(card) in
+                            CardDetailView(
+                                card: CardViewModel(quoteCard: Card(quote: recognizedText, bookTitle: "", bookAuthor: "", personalNote: "")),
+                                didUpdateCard: {_ in print("done")},
+                                didDeleteCard: {_ in print("done")},
+                                didAddCard: {(card) in
                                 cardListViewModel.add(card)
-                                showingForm = false}
+                                showingForm = false},
+                                isEditModeOn: true,
+                                isNewCard: true)
                         })
-                        Spacer()
+//                        Scan Button
 
                         
-//                        ForEach(0..<3) { num in
-//                            Spacer()
-//                            Image(systemName: tabBarImageNames[num])
-//                                .font(.system(size: 30, weight: .regular))
-//                            Spacer()
-//                        }
+                        Spacer()
+                        Button(action: {
+                            self.showingActionSheet = true
+                        }) {
+                            Image(systemName: "person.circle.fill")
+                                .font(.system(size: 35, weight: .regular))
+                        }.padding()
+                        
+                        Spacer()
+                        Button(action: {showingScanningView = true}) {
+                            Image(systemName: "camera.viewfinder")
+                                .font(.system(size: 40, weight: .regular))
+                        }.padding()
+                        .sheet(isPresented: $showingScanningView, content: {
+                            CardDetailView(
+                                card: CardViewModel(quoteCard: Card(quote: recognizedText, bookTitle: "", bookAuthor: "", personalNote: "")),
+                                didUpdateCard: {_ in print("done")},
+                                didDeleteCard: {_ in print("done")},
+                                didAddCard: {(card) in
+                                cardListViewModel.add(card)
+                                showingScanningView = false},
+                                isEditModeOn: true,
+                                isNewCard: true,
+                                isScanModeOn: true)
+                        })
+                        Spacer()
                     }
-                
                 }
                 .navigationTitle("Quotes")
-            }.sheet(isPresented: $showImagePicker, content: {
-                
-                ImagePickerView(imageSelected: $imageSelected, isShown: $showImagePicker, sourceType: self.sourceType)
-                // Placeholder for ImagePicker()
-//                Text("Something awsome should be here!")
-            })
+            }
+//            .sheet(isPresented: $showImagePicker, content: {
+//
+//                ImagePickerView(imageSelected: $imageSelected, isShown: $showImagePicker, sourceType: self.sourceType)
+//                // Placeholder for ImagePicker()
+////                Text("Something awsome should be here!")
+//            })
 //            Spacer()
            
     }

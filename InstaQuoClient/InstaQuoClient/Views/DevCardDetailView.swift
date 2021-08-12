@@ -1,4 +1,11 @@
 //
+//  DevCardDetailView.swift
+//  InstaQuoClient
+//
+//  Created by Nataliia Getlin on 8/10/21.
+//
+
+//
 //  CardDetailView.swift
 //  InstaQuoClient
 //
@@ -7,7 +14,7 @@
 
 import SwiftUI
 
-struct CardDetailView: View {
+struct DevCardDetailView: View {
     
     @ObservedObject var card: CardViewModel
     
@@ -135,13 +142,12 @@ struct CardDetailView: View {
     }
 }
 
-struct CardDetailView_Previews: PreviewProvider {
+struct DevCardDetailView_Previews: PreviewProvider {
 
 //    static let modelData = ModelData()
-    static let fakeCard = Card(quote: "Humans are not sleeping the way nature intended. The number of sleep bouts, the duration of sleep, and when sleep occurs has all been comprehensively distorted by modernity.", bookTitle: "Why We Sleep: Unlocking the Power of Sleep and Dreams", bookAuthor: "Matthew Walker", personalNote: "Matthew Walker is a British scientist and professor of neuroscience and psychology at the University of California, Berkeley. His research focuses on the impact of sleep on human health and disease. Previously, he was a professor of psychiatry at Harvard Medical School.", isFavorite: true)
+    static let fakeCard = Card(quote: "DEVELOPMENT Humans are not sleeping the way nature intended. The number of sleep bouts, the duration of sleep, and when sleep occurs has all been comprehensively distorted by modernity.", bookTitle: "Why We Sleep: Unlocking the Power of Sleep and Dreams", bookAuthor: "Matthew Walker", personalNote: "Matthew Walker is a British scientist and professor of neuroscience and psychology at the University of California, Berkeley. His research focuses on the impact of sleep on human health and disease. Previously, he was a professor of psychiatry at Harvard Medical School.", isFavorite: true)
 
     static var previews: some View {
-        CardDetailView(card: CardViewModel(quoteCard: fakeCard), didUpdateCard: {_ in print("done")}, didDeleteCard: {_ in print("done")}, didAddCard: {_ in print("done")}, isEditModeOn: true)
+        DevCardDetailView(card: CardViewModel(quoteCard: fakeCard), didUpdateCard: {_ in print("done")}, didDeleteCard: {_ in print("done")}, didAddCard: {_ in print("done")}, isEditModeOn: true)
     }
 }
-
