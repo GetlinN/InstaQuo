@@ -28,9 +28,14 @@ struct CardRowView: View {
         ////                .aspectRatio(contentMode: .fill)
         ////                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         ////                .scaledToFit()
-                    Text(card.quoteCard.quote)
-                        .padding()
-                        .lineLimit(3)
+                    VStack {
+                        Text(card.quoteCard.quote)
+//                            .padding()
+//                            .lineLimit(3)
+                        Text(card.quoteCard.bookAuthor)
+//                            .padding(.trailing, 10)
+                    }
+                    
                     
                     Spacer()
                     
