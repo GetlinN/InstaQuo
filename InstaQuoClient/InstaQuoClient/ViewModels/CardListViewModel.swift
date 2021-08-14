@@ -28,20 +28,6 @@ final class CardListViewModel: ObservableObject {
         cardRepository.add(quoteCard)
         
         authorRepository.processAuthorRequest(authorName: quoteCard.bookAuthor, bookTitle: quoteCard.bookTitle)
-        
-//        //handle authors
-//        let book = Book(title: quoteCard.bookTitle)
-//        var existingAuthor = authorRepository.findByAuthorName(quoteCard.bookAuthor)
-//        if (existingAuthor == nil) {
-//            authorRepository.add(Author(name: quoteCard.bookAuthor, books: [book]))
-//        } else {
-//            var authorBooks = existingAuthor!.books
-//            if (!authorBooks.contains(book)) {
-//                authorBooks.insert(book)
-//            }
-//            existingAuthor!.books = authorBooks
-//            authorRepository.update(existingAuthor!)
-//        }
     }
     
     func remove(_ quoteCard: Card) {

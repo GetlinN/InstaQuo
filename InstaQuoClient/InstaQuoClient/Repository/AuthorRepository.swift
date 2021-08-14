@@ -12,7 +12,7 @@ import Combine
 final class AuthorRepository: ObservableObject {
     private let path = "authors"
     private let db = Firestore.firestore()
-    @Published var authors: [Author] = []
+    @Published var authors: [Author] = [Author(name: "Debug Author", books: [])]
     
     init() {
         get()

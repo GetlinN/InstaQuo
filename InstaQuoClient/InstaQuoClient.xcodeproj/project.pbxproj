@@ -14,7 +14,7 @@
 		365806F526C454CB00511DDB /* AuthorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365806F426C454CB00511DDB /* AuthorViewModel.swift */; };
 		3671854026B9A2DC009BAE47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3671853F26B9A2DC009BAE47 /* GoogleService-Info.plist */; };
 		367226B626C382920030712E /* DevCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367226B526C382920030712E /* DevCardDetailView.swift */; };
-		367226B826C383D40030712E /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367226B726C383D40030712E /* CustomPickerView.swift */; };
+		367226B826C383D40030712E /* AuthorsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367226B726C383D40030712E /* AuthorsPickerView.swift */; };
 		367428D926B47A17007A451F /* InstaQuoClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428D826B47A17007A451F /* InstaQuoClientApp.swift */; };
 		367428DB26B47A17007A451F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367428DA26B47A17007A451F /* ContentView.swift */; };
 		367428DD26B47A1B007A451F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 367428DC26B47A1B007A451F /* Assets.xcassets */; };
@@ -45,7 +45,7 @@
 		365806F426C454CB00511DDB /* AuthorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorViewModel.swift; sourceTree = "<group>"; };
 		3671853F26B9A2DC009BAE47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		367226B526C382920030712E /* DevCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevCardDetailView.swift; sourceTree = "<group>"; };
-		367226B726C383D40030712E /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		367226B726C383D40030712E /* AuthorsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorsPickerView.swift; sourceTree = "<group>"; };
 		367428D526B47A17007A451F /* InstaQuoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaQuoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		367428D826B47A17007A451F /* InstaQuoClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaQuoClientApp.swift; sourceTree = "<group>"; };
 		367428DA26B47A17007A451F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 				36B41CD226BAFC7B005C8684 /* ScanDocumentView.swift */,
 				36FBBB6826C2DF4800A0FAA9 /* pickers.swift */,
 				367226B526C382920030712E /* DevCardDetailView.swift */,
-				367226B726C383D40030712E /* CustomPickerView.swift */,
+				367226B726C383D40030712E /* AuthorsPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 				36D7A98526B9EC9B005D1AFA /* CardListViewModel.swift in Sources */,
 				36FBBB6926C2DF4800A0FAA9 /* pickers.swift in Sources */,
 				367226B626C382920030712E /* DevCardDetailView.swift in Sources */,
-				367226B826C383D40030712E /* CustomPickerView.swift in Sources */,
+				367226B826C383D40030712E /* AuthorsPickerView.swift in Sources */,
 				367428ED26B47F20007A451F /* CardDetailView.swift in Sources */,
 				3674290026B4AC2D007A451F /* CardRowView.swift in Sources */,
 				367428DB26B47A17007A451F /* ContentView.swift in Sources */,

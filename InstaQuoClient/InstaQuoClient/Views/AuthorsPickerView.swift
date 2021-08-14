@@ -8,8 +8,10 @@
 
 import SwiftUI
 
-struct CustomPickerView: View {
-    var items: [String]
+struct AuthorsPickerView: View {
+    
+    @ObservedObject var authorListViewModel: AuthorListViewModel
+
     @State private var filteredItems: [String] = []
     @State private var filterString: String = ""
     @State private var frameHeight: CGFloat = 400
@@ -17,8 +19,19 @@ struct CustomPickerView: View {
     @Binding var pickerField: String
     @Binding var presentPicker: Bool
     
+    private var items: [String]
+    private var test: String
+    
+    init(authorListViewModel: AuthorListViewModel, pickerField: Binding<String>, presentPicker: Binding<Bool>) {
+        self.authorListViewModel = authorListViewModel
+        self._pickerField = pickerField
+        self._presentPicker = presentPicker
+        items = authorListViewModel.authorViewModels.map{$0.author.name}
+        test = "Debug";
+    }
+    
     var body: some View {
-        
+
         let filterBinding = Binding<String> (
             get: { filterString },
             set: {
@@ -55,6 +68,7 @@ struct CustomPickerView: View {
                         .foregroundColor(.blue)
                     TextField("Filter by entering text", text: filterBinding).textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
+                   
                     List {
                         ForEach(filteredItems, id: \.self) {item in
                             Button(action: {
@@ -79,14 +93,14 @@ struct CustomPickerView: View {
         }
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         .onAppear {
-            filteredItems = items
+            filteredItems = authorListViewModel.authorViewModels.map{$0.author.name}
             setHeight()
         }
     }
     
     fileprivate func setHeight () {
         withAnimation {
-            if filteredItems.count > 5 {
+            if filteredItems.count >= 5 {
                 frameHeight = 400
             } else if filteredItems.count == 0 {
                 frameHeight = 130
@@ -101,6 +115,6 @@ struct CustomPickerView_Previews: PreviewProvider {
     static let authors = ["Barbara Oakley", "Dan Ariely", "James Clear", "Matthew Walker", "Lisa Feldman Barrett", "David Baldacci", "Someone"].sorted()
     
     static var previews: some View {
-        CustomPickerView(items: authors, pickerField: .constant(""), presentPicker: .constant(true))
+        AuthorsPickerView(authorListViewModel: AuthorListViewModel(), pickerField: .constant(""), presentPicker: .constant(true))
     }
 }
