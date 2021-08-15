@@ -1,5 +1,5 @@
 //
-//  AuthorsPickerView2.swift
+//  TitlePickerView.swift
 //  InstaQuoClient
 //
 //  Created by Nataliia Getlin on 8/14/21.
@@ -7,17 +7,20 @@
 
 import SwiftUI
 
-struct AuthorsPickerView: View {
-    @ObservedObject var authorListViewModel = AuthorListViewModel()
+struct TitlePickerView: View {
+    @ObservedObject var titleListViewModel = TitleListViewModel()
 
     @State private var frameHeight: CGFloat = 400
     
     @Binding var pickerField: String
     @Binding var presentPicker: Bool
+    @Binding var authorName: String
     
-    init(pickerField: Binding<String>, presentPicker: Binding<Bool>) {
+    init(pickerField: Binding<String>, presentPicker: Binding<Bool>,
+         authorName: Binding<String>) {
         self._pickerField = pickerField
         self._presentPicker = presentPicker
+        self._authorName = authorName //.constant("Test")
     }
 
     
@@ -39,23 +42,23 @@ struct AuthorsPickerView: View {
                     }
                     .background(Color(UIColor.darkGray))
                     .foregroundColor(.white)
-                    Text("Add new author")
+                    Text("Add new book title")
                         .padding(.leading, 20)
                         .padding(.top, 20)
                         .foregroundColor(.blue)
 
-                    List(authorListViewModel.authors) {author in
+                    List(titleListViewModel.books) {book in
                             Button(action: {
-                                pickerField = author.name
+                                pickerField = book.title
                                 withAnimation {
                                     presentPicker = false
                                 }
                             }, label: {
-                                Text(author.name)
+                                Text(book.title)
                             })
                         //}
                     }.onAppear() {
-                        self.authorListViewModel.getAuthors()
+                        self.titleListViewModel.getBooks(authorName: authorName)
                     }
                 }
                 .background(Color(UIColor.secondarySystemBackground))
@@ -80,10 +83,10 @@ struct AuthorsPickerView: View {
     }
 }
 
-struct CustomPickerViewTest_Previews: PreviewProvider {
+struct TitlePickerView_Previews: PreviewProvider {
 //    static let authors = ["Barbara Oakley", "Dan Ariely", "James Clear", "Matthew Walker", "Lisa Feldman Barrett", "David Baldacci", "Someone"].sorted()
     
     static var previews: some View {
-        AuthorsPickerView(pickerField: .constant(""), presentPicker: .constant(true))
+        TitlePickerView(pickerField: .constant(""), presentPicker: .constant(true), authorName: .constant("Author"))
     }
 }

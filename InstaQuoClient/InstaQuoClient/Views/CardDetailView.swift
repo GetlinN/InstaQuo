@@ -10,13 +10,14 @@ import SwiftUI
 struct CardDetailView: View {
     
     @ObservedObject var card: CardViewModel
-//    @ObservedObject var authorListViewModel: AuthorListViewModel
+    @ObservedObject private var authorListViewModel = AuthorListViewModel()
     
 //    custom picker
     var authors = ["Barbara Oakley", "Dan Ariely", "James Clear", "Matthew Walker", "Lisa Feldman Barrett", "David Baldacci", "Someone"]
     
 //    @State private var authors: [String] = []
-    @State private var presentPicker = false
+    @State private var authorPicker = false
+    @State private var titlePicker = false
 //    custom picker
 
     //private var authorsPickerView: AuthorsPickerView
@@ -53,7 +54,6 @@ struct CardDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        
         ZStack {
             ScrollView {
                 VStack {
@@ -73,18 +73,7 @@ struct CardDetailView: View {
                     
                     Divider().padding()
                     VStack(alignment: .leading) {
-                        Label("Book Title", systemImage: "2.circle")
-                            .foregroundColor(Color.gray)
-                        TextEditor(text: $card.quoteCard.bookTitle)
-                            .disabled(!isEditing)
-                            .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: 80, alignment: .leading)
-                            .font(.custom("HelveticaNeue", size: fontSize))
-        //                    .lineSpacing(5)
-                    }.frame(height: 90)
-                    
-                    Divider().padding()
-                    VStack(alignment: .leading) {
-                        Label("Author", systemImage: "3.circle")
+                        Label("Author", systemImage: "2.circle")
                             .foregroundColor(Color.gray)
                         ZStack {
                             TextEditor(text: $card.quoteCard.bookAuthor)
@@ -92,7 +81,7 @@ struct CardDetailView: View {
                                 .overlay(
                                     Button(action: {
                                         withAnimation {
-                                        presentPicker = true
+                                        authorPicker = true
                                         }
                                     }) {
                                         Rectangle().foregroundColor(Color.clear)
@@ -108,6 +97,30 @@ struct CardDetailView: View {
                         }.disabled(!isEditing)
         //                    .lineSpacing(5)
                     }
+                    
+                    Divider().padding()
+                    VStack(alignment: .leading) {
+                        Label("Book Title", systemImage: "3.circle")
+                            .foregroundColor(Color.gray)
+                        ZStack {
+                            TextEditor(text: $card.quoteCard.bookTitle)
+//                                .disabled(true)
+                                .overlay(
+                                    Button(action: {
+                                        withAnimation {
+                                        titlePicker = true
+                                        }
+                                    }) {
+                                        Rectangle().foregroundColor(Color.clear)
+                                    }
+                                )
+                                .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: 80, alignment: .leading)
+                                .font(.custom("HelveticaNeue", size: fontSize))
+                        }.disabled(!isEditing)
+        //                    .lineSpacing(5)
+                    }.frame(height: 90)
+                    
+ 
                     Divider().padding()
                     VStack(alignment: .leading) {
                         Label("Personal Note", systemImage: "4.circle")
@@ -159,10 +172,13 @@ struct CardDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $isScanModeOn, content: {
                 ScanDocumentView(recognizedText: self.$card.quoteCard.quote)
-        })
+            })
         }
-        if presentPicker {
-            AuthorsPickerView(authorListViewModel: AuthorListViewModel(), pickerField: $card.quoteCard.bookAuthor, presentPicker: $presentPicker)
+        if authorPicker {
+            AuthorsPickerView(pickerField: $card.quoteCard.bookAuthor, presentPicker: $authorPicker)
+        }
+        if titlePicker {
+            TitlePickerView(pickerField: $card.quoteCard.bookTitle, presentPicker: $titlePicker, authorName: $card.quoteCard.bookAuthor)
         }
     }
 }

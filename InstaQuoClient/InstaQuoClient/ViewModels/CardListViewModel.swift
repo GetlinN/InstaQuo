@@ -36,5 +36,7 @@ final class CardListViewModel: ObservableObject {
     
     func update(_ quoteCard: Card) {
         cardRepository.update(quoteCard)
+        
+        authorRepository.processAuthorRequest(authorName: quoteCard.bookAuthor, bookTitle: quoteCard.bookTitle)
     }
 }

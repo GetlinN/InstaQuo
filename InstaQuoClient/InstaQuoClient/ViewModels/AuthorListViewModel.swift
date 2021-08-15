@@ -6,6 +6,9 @@
 //
 
 import Combine
+import SwiftUI
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 
 final class AuthorListViewModel: ObservableObject {
@@ -13,24 +16,42 @@ final class AuthorListViewModel: ObservableObject {
     @Published var authorViewModels: [AuthorViewModel] = []
     private var cancellabels: Set<AnyCancellable> = []
     
-    init() {
-        authorRepository.$authors
-            .map { author in
-                author.map(AuthorViewModel.init)
+    @Published var authors: [Author] = []
+    
+    
+    private let path = "authors"
+    private let db = Firestore.firestore()
+    
+    func getAuthors() {
+        db.collection(path).addSnapshotListener {(snapshot, error) in
+            if let error = error {
+                print(error)
+                return
             }
-            .assign(to: \.authorViewModels, on: self)
-            .store(in: &cancellabels)
+            self.authors = snapshot?.documents.compactMap {
+                try? $0.data(as: Author.self)
+            } ?? []
+        }
     }
     
-    func add(_ author: Author) {
-        authorRepository.add(author)
-    }
+//    func get() {
+//        authorRepository.$authors
+//            .map { author in
+//                author.map(AuthorViewModel.init)
+//            }
+//            .assign(to: \.authorViewModels, on: self)
+//            .store(in: &cancellabels)
+//    }
     
-    func remove(_ author: Author) {
-        authorRepository.remove(author)
-    }
-    
-    func update(_ author: Author) {
-        authorRepository.update(author)
-    }
+//    func add(_ author: Author) {
+//        authorRepository.add(author)
+//    }
+//
+//    func remove(_ author: Author) {
+//        authorRepository.remove(author)
+//    }
+//
+//    func update(_ author: Author) {
+//        authorRepository.update(author)
+//    }
 }
