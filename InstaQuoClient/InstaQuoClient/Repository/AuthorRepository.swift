@@ -12,12 +12,9 @@ import Combine
 final class AuthorRepository: ObservableObject {
     private let path = "authors"
     private let db = Firestore.firestore()
+    
     @Published var authors: [Author] = []
-    
-    init() {
-        get()
-    }
-    
+
     func get() {
         db.collection(path).addSnapshotListener {(snapshot, error) in
             if let error = error {

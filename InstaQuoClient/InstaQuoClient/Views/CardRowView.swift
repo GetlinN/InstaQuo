@@ -17,7 +17,7 @@ struct CardRowView: View {
         
         RoundedRectangle(cornerRadius: 6)
             .fill(getRandomColor())
-            .frame(height: 120)
+            .frame(height: 140)
             .overlay(
                 HStack {
         //            card.image
@@ -28,12 +28,15 @@ struct CardRowView: View {
         ////                .aspectRatio(contentMode: .fill)
         ////                .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         ////                .scaledToFit()
-                    VStack {
-                        Text(card.quoteCard.quote)
-//                            .padding()
-//                            .lineLimit(3)
+                    VStack(alignment: .trailing, spacing: 10) {
+                        Text("\"\(card.quoteCard.quote)\"")
+                            .padding(.leading, 10)
+                            .padding(.top, 10)
+                            .lineLimit(3)
+
                         Text(card.quoteCard.bookAuthor)
-//                            .padding(.trailing, 10)
+                            .font(.system(size: 12))
+                            .padding(.bottom, 10)
                     }
                     
                     
@@ -42,8 +45,12 @@ struct CardRowView: View {
                     if card.quoteCard.isFavorite {
                         Image(systemName: "star.fill")
                             .foregroundColor(Color.yellow)
-                            .padding(15)
-                    
+                            .padding(.trailing, 10)
+                            .frame(width: 30)
+                    } else {
+                        Rectangle()
+                            .frame(width: 40)
+                            .foregroundColor(Color.clear)
                     }
                 }
             )
@@ -62,7 +69,7 @@ struct CardRowView: View {
 
 struct CardRowView_Previews: PreviewProvider {
     
-    static let fakeCards = [Card(quote: "Test quote", bookTitle: "Book title", bookAuthor: "Author", personalNote: "Note"), Card(quote: "Test quote", bookTitle: "Book title", bookAuthor: "Author", personalNote: "Note"), Card(id: "Test3", quote: "You do not rise to the level of your goals. You fall to the level of your systems.", bookTitle: "Test3", bookAuthor: "Test3", personalNote: "Test3", isFavorite: true)]
+    static let fakeCards = [Card(quote: "If a man does not keep pace with his companions, perhaps it is because he hears a different drummer: let him step to the music that he hears.", bookTitle: "Book title", bookAuthor: "M. M. Kaye", personalNote: "Note"), Card(quote: "Test quote", bookTitle: "Book title", bookAuthor: "Author", personalNote: "Note"), Card(id: "Test3", quote: "You do not rise to the level of your goals. You fall to the level of your systems.", bookTitle: "Test3", bookAuthor: "Test3", personalNote: "Test3", isFavorite: true)]
     
     static var cardViewModels = [CardViewModel(quoteCard: fakeCards[0]), CardViewModel(quoteCard: fakeCards[1]),
         CardViewModel(quoteCard: fakeCards[2])
