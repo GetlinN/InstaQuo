@@ -42,10 +42,12 @@ struct TitlePickerView: View {
                     }
                     .background(Color(UIColor.darkGray))
                     .foregroundColor(.white)
-                    Text("Add new book title")
-                        .padding(.leading, 20)
-                        .padding(.top, 20)
-                        .foregroundColor(.blue)
+                   
+//                    Stretch goal: add new title from picker view
+//                    Text("Add new book title")
+//                        .padding(.leading, 20)
+//                        .padding(.top, 20)
+//                        .foregroundColor(.blue)
 
                     List(titleListViewModel.books) {book in
                             Button(action: {

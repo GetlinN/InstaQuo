@@ -1,5 +1,5 @@
 //
-//  AuthorsPickerView2.swift
+//  AuthorsPickerView.swift
 //  InstaQuoClient
 //
 //  Created by Nataliia Getlin on 8/14/21.
@@ -39,10 +39,12 @@ struct AuthorsPickerView: View {
                     }
                     .background(Color(UIColor.darkGray))
                     .foregroundColor(.white)
-                    Text("Add new author")
-                        .padding(.leading, 20)
-                        .padding(.top, 20)
-                        .foregroundColor(.blue)
+                    
+//                    Stretch goal: add new author from picker view
+//                    Text("Add new author")
+//                        .padding(.leading, 20)
+//                        .padding(.top, 20)
+//                        .foregroundColor(.blue)
 
                     List(authorListViewModel.authors) {author in
                             Button(action: {

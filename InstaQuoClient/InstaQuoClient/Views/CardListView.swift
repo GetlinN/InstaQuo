@@ -48,7 +48,8 @@ struct CardListView: View {
                     
 //                    for testing/debugging
                     Divider()
-                    Text("# of records in db: \(cardListViewModel.cardViewModels.count)").padding(10)
+                    
+//                    Text("# of records in db: \(cardListViewModel.cardViewModels.count)").padding(10)
                     
 //                    for testing
 //                    ScrollView {

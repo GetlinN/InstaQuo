@@ -57,11 +57,14 @@ struct CardDetailView: View {
         ZStack {
             ScrollView {
                 VStack {
-                    Text("Editing: \(isEditing.description)")
+                    
+////                    for debugging purpose
+//                    Text("Editing: \(isEditing.description)")
                    
                     VStack(alignment: .leading) {
                         Label("Quote", systemImage: "1.circle")
                             .foregroundColor(Color.gray)
+                            .padding(.top)
                         
                         TextEditor(text: $card.quoteCard.quote)
                             .disabled(!isEditing)
@@ -77,7 +80,7 @@ struct CardDetailView: View {
                             .foregroundColor(Color.gray)
                         ZStack {
                             TextEditor(text: $card.quoteCard.bookAuthor)
-                                .disabled(true)
+//                                .disabled(true)
                                 .overlay(
                                     Button(action: {
                                         withAnimation {
@@ -92,7 +95,7 @@ struct CardDetailView: View {
     //                                card.quoteCard.bookAuthor = selection
     //                            }
     //                            .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                                .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: 50, alignment: .leading)
+                                .frame(minWidth: 0, maxWidth: 350, minHeight: 40, maxHeight: 60, alignment: .leading)
                                 .font(.custom("HelveticaNeue", size: fontSize))
                         }.disabled(!isEditing)
         //                    .lineSpacing(5)
@@ -114,7 +117,7 @@ struct CardDetailView: View {
                                         Rectangle().foregroundColor(Color.clear)
                                     }
                                 )
-                                .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: 80, alignment: .leading)
+                                .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: 60, alignment: .leading)
                                 .font(.custom("HelveticaNeue", size: fontSize))
                         }.disabled(!isEditing)
         //                    .lineSpacing(5)
@@ -127,11 +130,11 @@ struct CardDetailView: View {
                             .foregroundColor(Color.gray)
                         TextEditor(text: $card.quoteCard.personalNote)
                             .disabled(!isEditing)
-                            .frame(minWidth: 0, maxWidth: 350, minHeight: 0, maxHeight: 1500)
+                            .frame(minWidth: 0, maxWidth: 350, minHeight: 80, maxHeight: 80, alignment: .leading)
                             .lineLimit(10)
                             .font(.custom("HelveticaNeue", size: fontSize))
         //                    .lineSpacing(5)
-                    }.frame(height: 300)
+                    }
                     
                     VStack(alignment: .leading) {
                         Toggle(isOn: $card.quoteCard.isFavorite, label: {
