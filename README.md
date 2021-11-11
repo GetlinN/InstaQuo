@@ -14,11 +14,6 @@ If you are an avid reader, who likes both paper books and e-books you might have
 
 InstaQuo is an iOS app that lets you do that.
 
-## Problem Statement #1
-
-If you are an avid reader, who likes both paper books and e-books you might have experienced the urge of saving wisdom from the books you read in one place by simply scanning and adding the quotes to your personal collection and then sharing the wisdom with your friends and the whole world. 
-InstaQuo is an iOS app that lets you do that.
-
 ## MVP Feature Set
 
 1. A user can login into the app.
