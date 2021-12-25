@@ -40,25 +40,15 @@ InstaQuo is an iOS app that lets you do that.
 6. Grouping the cards by collections/books/authors/genre. 
 
 
-## Draft Technology Choices
+## Technology Choices
 
-Programming Languages: Swift
+- Programming Language: Swift.
+- IOS Mobile Development Tool: Xcode.
+- UI Frameworks: SwiftUI.
+- Text Detection and Recognition Framework: Apple Vision.
+- Backend Technology: Google FireBase Firestore (NoSQL cloud database).
+- Managing workflow tool: Trello.
 
-IOS Mobile Development Tools: Xcode
-
-UI Frameworks: UIKit, SwiftUI
-
-Backend: Flask, Python, Postman, Heroku (deployment)
-
-Databases: Google Firebase Firestore
-
-API:
-
-- <https://developers.google.com/books>
-- <https://www.goodreads.com/api>
-- <https://cloud.google.com/vision/docs/ocr#optical_character_recognition_ocr>
-
-Managing workflow tool: Trello
 
 ## Additional content, diagrams, wireframes, user flows, etc
 
